@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    int year = 1994;
+    int founding = DateTime.Today.Year;
+    var legacyTime = founding - year;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Northwind Traders</h1>
+    <img src="~/images/northwind.png" />
+    <p>Proudly distributing fine food products around the world for @legacyTime years.</p>
+</div>

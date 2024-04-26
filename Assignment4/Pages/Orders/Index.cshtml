@@ -1,0 +1,89 @@
+﻿@page
+@model Assignment4.Pages.Orders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+
+<form>
+    <p>
+        Employee:
+        <select asp-for="employeeSelection" asp-items="Model.Employees" onchange="submit()">
+            <option value="">All</option>
+        </select>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].OrderDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ShippedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ShipViaNavigation.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Freight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ShipName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ShipCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ShipRegion)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].ShipCountry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippedDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipViaNavigation.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipRegion)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipCountry)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
